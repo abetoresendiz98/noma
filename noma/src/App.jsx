@@ -1085,3 +1085,20 @@ export default function Noma() {
     </div>
   );
 }
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// FLIGHT + EXCHANGE HELPERS
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+export async function searchFlights(origin, destination, date) {
+  const res = await fetch('/api/flights', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ origin, destination, date })
+  });
+  return res.json();
+}
+
+export async function getExchangeRate(from, to) {
+  const res = await fetch(`/api/exchange?from=${from}&to=${to}`);
+  return res.json();
+}
