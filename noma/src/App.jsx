@@ -1093,7 +1093,7 @@ export default function Noma() {
 // FLIGHT + EXCHANGE HELPERS
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 export async function searchFlights(origin, destination, date) {
-  const res = await fetch('/api/flights', {
+  const res = await fetch('/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ origin, destination, date })
