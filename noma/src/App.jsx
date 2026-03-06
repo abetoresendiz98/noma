@@ -1,3 +1,4 @@
+import FlightSearch from "./FlightSearch.jsx"
 import React from "react"
 import { useState, useEffect, useRef, useCallback } from "react";
 
@@ -1024,6 +1025,8 @@ export default function Noma() {
               <button className="btn btn-ghost btn-sm" onClick={() => initChat(activeDest)}>🔄 Reiniciar</button>
             </div>
           </div>
+
+          {activeDest && <div style={{ padding:"0 22px 12px", flexShrink:0 }}><FlightSearch defaultOrigin="MEX" defaultDest={activeDest.code || "CTG"} /></div>}
 
           {/* Messages */}
           <div className="scroll" style={{ flex:1, overflowY:"auto", padding:"22px 22px 0" }}>
