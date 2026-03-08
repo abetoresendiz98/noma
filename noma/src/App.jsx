@@ -1,6 +1,7 @@
 import FlightSearch from "./FlightSearch.jsx"
 import MapWeather from "./MapWeather.jsx"
 import HotelWidget from "./HotelWidget.jsx"
+import SavedTrips from "./SavedTrips.jsx"
 import React from "react"
 import { useState, useEffect, useRef, useCallback } from "react";
 
@@ -627,6 +628,7 @@ function DestCard({ d, mode, onChat }) {
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 export default function Noma() {
   const [screen, setScreen] = useState("home");
+  const [showSavedTrips, setShowSavedTrips] = useState(false);
   const [budgetMode, setBudgetMode] = useState("equilibrado");
   const [regionFilter, setRegionFilter] = useState("Todos");
   const [searchQ, setSearchQ] = useState("");
@@ -1025,6 +1027,7 @@ export default function Noma() {
               </div>
               <button className="btn btn-ghost btn-sm" onClick={() => setScreen("home")}>🏠</button>
               <button className="btn btn-ghost btn-sm" onClick={() => initChat(activeDest)}>🔄 Reiniciar</button>
+              <button className="btn btn-ghost btn-sm" onClick={saveItinerary} style={{marginLeft: 8}}>💾 Guardar</button>
             </div>
           </div>
 
