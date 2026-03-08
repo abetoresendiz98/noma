@@ -662,7 +662,27 @@ export default function Noma() {
     return `¡Hola! Soy **noma AI** ✦ — tu asesor de viajes personal en español.\n\nEstás en modo **${bm.icon} ${bm.label}** — ${bm.desc}. Puedo cambiarlo en cualquier momento.\n\nEstoy aquí para ayudarte a:\n\n🗺️ **Planificar itinerarios reales** con precios verificados\n💎 **Descubrir lugares auténticos** que Google turístico no muestra\n💰 **Optimizar cada dólar** sin sacrificar experiencias\n🛡️ **Viajar seguro** con tips de locales que ya estuvieron ahí\n\n¿A dónde sueñas ir? ¿Tienes un destino en mente o quieres que te ayude a elegir según tu presupuesto y gustos?`;
   };
 
-  const initChat = (dest = null) => {
+    const saveItinerary = () => {
+    if (!activeDest) return;
+    const lastAiMsg = messages.filter(m => m.role === 'assistant').pop();
+    if (!lastAiMsg) return;
+    
+    const trip = {
+      id: Date.now(),
+      destination: activeDest.name,
+      date: new Date().toISOString(),
+      budget: budgetMode === 'backpacker' ? 'Mochilero' : budgetMode === 'balanced' ? 'Equilibrado' : 'Sin límite',
+      days: activeDest.dura || '7',
+      summary: lastAiMsg.content.slice(0, 500) + '...',
+      fullContent: lastAiMsg.content
+    };
+    
+    const existing = JSON.parse(localStorage.getItem('noma_trips') || '[]');
+    localStorage.setItem('noma_trips', JSON.stringify([trip, ...existing]));
+    alert('✅ Itinerario guardado');
+  };
+
+const initChat = (dest = null) => {
     setActiveDest(dest);
     setItinerary(null);
     setItineraryMsgIdx(null);
