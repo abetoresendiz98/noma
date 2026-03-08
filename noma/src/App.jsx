@@ -1,7 +1,6 @@
 import FlightSearch from "./FlightSearch.jsx"
 import MapWeather from "./MapWeather.jsx"
 import HotelWidget from "./HotelWidget.jsx"
-import HotelSearch from "./HotelSearch.jsx"
 import React from "react"
 import { useState, useEffect, useRef, useCallback } from "react";
 
@@ -1030,7 +1029,7 @@ export default function Noma() {
           </div>
 
           {activeDest && <div style={{ padding:"0 22px 12px", flexShrink:0 }}><MapWeather destination={activeDest} />
-          <HotelWidget destination={activeDest} budgetMode={budgetMode} /><HotelSearch destination={activeDest} /><FlightSearch defaultOrigin="MEX" defaultDest={activeDest.code || "CTG"} /></div>}
+          <HotelWidget destination={activeDest} budgetMode={budgetMode} /><FlightSearch defaultOrigin="MEX" defaultDest={activeDest.code || "CTG"} /></div>}
 
           {/* Messages */}
           <div className="scroll" style={{ flex:1, overflowY:"auto", padding:"22px 22px 0" }}>
