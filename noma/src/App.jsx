@@ -1,4 +1,5 @@
 import FlightSearch from "./FlightSearch.jsx"
+import MapWeather from "./MapWeather.jsx"
 import React from "react"
 import { useState, useEffect, useRef, useCallback } from "react";
 
@@ -1026,7 +1027,7 @@ export default function Noma() {
             </div>
           </div>
 
-          {activeDest && <div style={{ padding:"0 22px 12px", flexShrink:0 }}><FlightSearch defaultOrigin="MEX" defaultDest={activeDest.code || "CTG"} /></div>}
+          {activeDest && <div style={{ padding:"0 22px 12px", flexShrink:0 }}><MapWeather destination={activeDest} /><FlightSearch defaultOrigin="MEX" defaultDest={activeDest.code || "CTG"} /></div>}
 
           {/* Messages */}
           <div className="scroll" style={{ flex:1, overflowY:"auto", padding:"22px 22px 0" }}>
