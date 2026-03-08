@@ -203,8 +203,8 @@ export default function MapWeather({ destination }) {
     const fetchWeather = async () => {
       try {
         const [curRes, foreRes] = await Promise.all([
-          fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lng}&appid=${WEATHER_KEY}&units=metric&lang=es`),
-          fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${coords.lat}&lon=${coords.lng}&appid=${WEATHER_KEY}&units=metric&lang=es&cnt=40`)
+          fetch(`/api/weather?lat=${coords.lat}&lon=${coords.lng}&appid=${WEATHER_KEY}&units=metric&lang=es`),
+          fetch(`/api/forecast?lat=${coords.lat}&lon=${coords.lng}&appid=${WEATHER_KEY}&units=metric&lang=es&cnt=40`)
         ]);
         const cur = await curRes.json();
         const fore = await foreRes.json();
