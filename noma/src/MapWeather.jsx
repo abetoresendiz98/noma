@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const WEATHER_KEY = "43ba48ad3141b9eff4776c810093692e";
+const WEATHER_KEY = "b48c62f42a1fc6a8122b0b5d54ad24a2";
 
 const CSS = `
 @import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
