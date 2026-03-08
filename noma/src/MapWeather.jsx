@@ -172,8 +172,8 @@ export default function MapWeather({ destination }) {
       if (!mapRef.current) return;
       const L = window.L;
       const map = L.map(mapRef.current, { zoomControl:true, scrollWheelZoom:false, attributionControl:true });
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution:'© OpenStreetMap',maxZoom:18
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+        attribution:'© CartoDB',maxZoom:18
       }).addTo(map);
 
       const icon = L.divIcon({
