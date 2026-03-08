@@ -547,8 +547,7 @@ export default function FlightSearch({ defaultOrigin = "MEX", defaultDest = "CTG
         {/* EXCHANGE */}
         <ExchangeWidget destination={dest} />
 
-      </div>
-    </>}
+        </>}
       </div>
     </div>
   );
