@@ -348,6 +348,7 @@ export default function FlightSearch({ defaultOrigin = "MEX", defaultDest = "CTG
   const [error, setError] = useState(null);
   const [sort, setSort] = useState("price");
   const [searched, setSearched] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const search = async () => {
     if (origin === dest) return;
@@ -396,19 +397,26 @@ export default function FlightSearch({ defaultOrigin = "MEX", defaultDest = "CTG
       <style>{CSS}</style>
       <div className="fs-card">
 
-        {/* HEADER */}
-        <div className="fs-header">
-          <div>
-            <div className="fs-title">✦ Búsqueda de vuelos · noma.</div>
-            <div style={{ fontSize:13, color:"rgba(245,239,230,.6)", marginTop:4 }}>
-              Datos reales · Amadeus API
-            </div>
+        {/* COLLAPSED BAR */}
+        <div onClick={() => setOpen(!open)} style={{
+          padding:"12px 18px", cursor:"pointer",
+          display:"flex", alignItems:"center", justifyContent:"space-between",
+          borderBottom: open ? "1px solid rgba(255,255,255,.06)" : "none",
+          transition:"all .2s"
+        }}>
+          <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+            <span style={{ fontSize:16 }}>✈️</span>
+            <span style={{ fontSize:12, fontWeight:700, color:"#E8432D", textTransform:"uppercase", letterSpacing:2 }}>Buscar vuelos</span>
+            <span style={{ fontSize:11, color:"rgba(245,239,230,.4)" }}>· Amadeus · datos en vivo</span>
           </div>
-          <div className="fs-live">
-            <span className="fs-live-dot" />
-            En vivo
+          <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+            <div className="fs-live"><span className="fs-live-dot" />En vivo</div>
+            <span style={{ color:"rgba(245,239,230,.4)", fontSize:14, transition:"transform .2s", display:"inline-block", transform: open ? "rotate(180deg)" : "rotate(0)" }}>▾</span>
           </div>
         </div>
+
+        {/* EXPANDABLE CONTENT */}
+        {open && <>
 
         {/* FORM */}
         <div className="fs-form">
@@ -539,6 +547,8 @@ export default function FlightSearch({ defaultOrigin = "MEX", defaultDest = "CTG
         {/* EXCHANGE */}
         <ExchangeWidget destination={dest} />
 
+      </div>
+    </>}
       </div>
     </div>
   );
