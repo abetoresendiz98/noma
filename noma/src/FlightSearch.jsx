@@ -68,14 +68,14 @@ const CSS = `
   .fs-live-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80;animation:fs-pulse 2s infinite}
 
   /* SEARCH FORM */
-  .fs-form{padding:16px 20px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;border-bottom:1px solid rgba(255,255,255,.05)} @media(max-width:600px){.fs-form{grid-template-columns:1fr 1fr;} .fs-swap{display:none!important}}
+  .fs-form{padding:16px 20px;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid rgba(255,255,255,.05)} @media(min-width:601px){.fs-form{display:grid;grid-template-columns:1fr 1fr 1fr auto;align-items:end;}}
   .fs-field{display:flex;flex-direction:column;gap:6px}
   .fs-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(245,239,230,.4)}
   .fs-select{
     background:#0c0806;border:1.5px solid rgba(255,255,255,.08);
     color:#F5EFE6;padding:12px 16px;border-radius:12px;
     font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:500;
-    outline:none;cursor:pointer;transition:border .2s,background .2s;
+    outline:none;cursor:pointer;transition:border .2s,background .2s;width:100%;
     appearance:none;
     background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(245,239,230,.3)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat:no-repeat;background-position:right 14px center;
