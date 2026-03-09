@@ -608,6 +608,11 @@ textarea.inp{resize:none;line-height:1.6}
   .dest-grid{grid-template-columns:1fr}
   .feat-grid{grid-template-columns:1fr 1fr}
   .hero-h1{font-size:44px!important;letter-spacing:-2.5px!important}
+  @media(max-width:480px){
+    .hero-h1{font-size:34px!important;letter-spacing:-1.5px!important;line-height:1.08!important}
+    .budget-row button{padding:10px 12px!important;font-size:12px!important}
+    .tag{font-size:10px!important;padding:6px 12px!important}
+  }
   .budget-row{flex-direction:column!important}
   .container,.container-sm{padding:0 16px}
   .nav{padding:0 16px}
@@ -1060,14 +1065,14 @@ const initChat = (dest = null) => {
               <div key={i} style={{ position:"absolute", left:l, right:r||"auto", top:t, width:sz, height:sz, background:`radial-gradient(circle,${c},transparent 65%)`, borderRadius:"50%", pointerEvents:"none" }} />
             ))}
             {/* Content */}
-            <div style={{ position:"relative", textAlign:"center", padding:"80px 24px", maxWidth:840, zIndex:1, opacity:heroVisible?1:0, transform:heroVisible?"none":"translateY(20px)", transition:"opacity .8s ease, transform .8s cubic-bezier(.23,1,.32,1)" }}>
+            <div style={{ position:"relative", textAlign:"center", padding:"clamp(40px,8vw,80px) clamp(16px,5vw,24px)", maxWidth:840, zIndex:1, opacity:heroVisible?1:0, transform:heroVisible?"none":"translateY(20px)", transition:"opacity .8s ease, transform .8s cubic-bezier(.23,1,.32,1)" }}>
               <span className="tag float-anim" style={{ marginBottom:30, display:"inline-flex", fontSize:12 }}>
                 ✦ La comunidad nómada en español · IA real · 100% gratis
               </span>
-              <h1 className="hero-h1 serif" style={{ fontSize:"clamp(48px,8vw,86px)", fontWeight:700, lineHeight:1.01, marginBottom:28, letterSpacing:"-4px" }}>
+              <h1 className="hero-h1 serif" style={{ fontSize:"clamp(36px,8vw,86px)", fontWeight:700, lineHeight:1.05, marginBottom:20, letterSpacing:"clamp(-2px,-0.5vw,-4px)" }}>
                 El mundo<br /><span className="coral coral-flow">es tu casa.</span><br /><em style={{ fontWeight:300, fontSize:"85%", letterSpacing:"-2px" }}>Empieza a vivirlo.</em>
               </h1>
-              <p style={{ fontSize:"clamp(15px,2.2vw,19px)", color:"var(--muted)", lineHeight:1.72, marginBottom:52, maxWidth:580, margin:"0 auto 52px" }}>
+              <p style={{ fontSize:"clamp(15px,2.2vw,19px)", color:"var(--muted)", lineHeight:1.72, marginBottom:52, maxWidth:580, margin:"0 auto clamp(28px,5vw,52px)" }}>
                 La primera comunidad nómada en español con <strong style={{ color:"var(--text)" }}>IA conversacional real</strong>, precios verificados por viajeros y joyas ocultas que Google no te muestra.
               </p>
 
@@ -1075,7 +1080,7 @@ const initChat = (dest = null) => {
               <div className="budget-row" style={{ display:"flex", gap:10, justifyContent:"center", marginBottom:40, flexWrap:"wrap" }}>
                 {Object.entries(BUDGET_MODES).map(([k, v]) => (
                   <button key={k} onClick={() => setBudgetMode(k)}
-                    style={{ flex:"1 1 160px", maxWidth:210, padding:"14px 18px", borderRadius:16, cursor:"pointer", border:`2px solid ${budgetMode===k?v.color:"var(--border)"}`, background:budgetMode===k?v.bg:"rgba(255,255,255,.03)", textAlign:"left", transition:"all .22s", outline:"none" }}>
+                    style={{ flex:"1 1 130px", maxWidth:180, padding:"12px 14px", borderRadius:16, cursor:"pointer", border:`2px solid ${budgetMode===k?v.color:"var(--border)"}`, background:budgetMode===k?v.bg:"rgba(255,255,255,.03)", textAlign:"left", transition:"all .22s", outline:"none" }}>
                     <div style={{ fontSize:16, marginBottom:4 }}>{v.icon}</div>
                     <div style={{ fontSize:14, fontWeight:700, color:budgetMode===k?v.color:"var(--text)", marginBottom:2 }}>{v.label}</div>
                     <div style={{ fontSize:11, color:"var(--muted)" }}>{v.desc}</div>
