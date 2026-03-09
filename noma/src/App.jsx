@@ -9,7 +9,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 // DATA
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const DESTINATIONS = [
-  { id:1, name:"Cartagena", country:"Colombia", region:"Latinoamérica", emoji:"🇨🇴",
+  { id:1, name:"Cartagena", code:"CTG", country:"Colombia", region:"Latinoamérica", emoji:"🇨🇴",
     price:{mochilero:280,equilibrado:520,premium:1400}, rating:4.9, reviews:2847,
     verified:"hace 2 días", verifiedBy:34, tag:"🔥 Tendencia",
     img:"https://images.unsplash.com/photo-1583997052301-d9c02640c386?w=900&q=85",
@@ -20,7 +20,7 @@ const DESTINATIONS = [
     warnings:["Evita taxis sin taxímetro — negocia precio antes","Las playas frente al hotel son privadas de facto — camina 10 min al este","Alta temporada Dic-Ene: precios +40%"],
     hidden_score:94, local_tips:["La paleta de coco en la playa cuesta $0.50 con los vendedores locales, no $3 en el resort","El bus al centro desde el aeropuerto: $0.80. El taxi oficial: $12. Exactamente la misma ruta"] },
 
-  { id:2, name:"Lisboa", country:"Portugal", region:"Europa", emoji:"🇵🇹",
+  { id:2, name:"Lisboa", code:"LIS", country:"Portugal", region:"Europa", emoji:"🇵🇹",
     price:{mochilero:420,equilibrado:780,premium:2200}, rating:4.8, reviews:3412,
     verified:"hace 1 día", verifiedBy:67, tag:"✈️ Vuelos baratos",
     img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85",
@@ -31,7 +31,7 @@ const DESTINATIONS = [
     warnings:["Alfama en verano: +35°C y lleno. Ve en mayo o septiembre","Uber es 30% más barato que taxi en la ciudad","Cuidado con bolsos en Rossio — zona de carteristas conocida"],
     hidden_score:89, local_tips:["Pastel de nata: en la Fábrica de Pastéis de Belém €1.20, en cualquier turístico €3.50. El original no tiene sucursal","A Cevicheria en Príncipe Real: reserva con 3 semanas, vale cada euro. El mejor pulpo del mundo"] },
 
-  { id:3, name:"Cusco", country:"Perú", region:"Latinoamérica", emoji:"🇵🇪",
+  { id:3, name:"Cusco", code:"CUZ", country:"Perú", region:"Latinoamérica", emoji:"🇵🇪",
     price:{mochilero:220,equilibrado:450,premium:1800}, rating:4.9, reviews:1923,
     verified:"hace 3 días", verifiedBy:28, tag:"🏔️ Aventura épica",
     img:"https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=900&q=85",
@@ -42,7 +42,7 @@ const DESTINATIONS = [
     warnings:["Mal de altura real: tómate 2 días de aclimatación antes de hacer caminatas","Compra las entradas del Boleto Turístico con anticipación — se agotan en temporada alta","El tren a Aguas Calientes: reserva con 30+ días en temporada alta"],
     hidden_score:91, local_tips:["Hoja de coca para el soroche: te la dan gratis en el hotel o compras en mercado por S/1. Funciona de verdad","El desayuno incluido en los hostales suele ser mejor que cualquier cafetería turística"] },
 
-  { id:4, name:"Oaxaca", country:"México", region:"Latinoamérica", emoji:"🇲🇽",
+  { id:4, name:"Oaxaca", code:"OAX", country:"México", region:"Latinoamérica", emoji:"🇲🇽",
     price:{mochilero:180,equilibrado:360,premium:900}, rating:4.9, reviews:1456,
     verified:"hace 2 días", verifiedBy:19, tag:"💎 Joya oculta",
     img:"https://images.unsplash.com/photo-1547558902-c0e053edd9e9?w=900&q=85",
@@ -53,7 +53,7 @@ const DESTINATIONS = [
     warnings:["Día de Muertos (oct-nov): los precios se duplican y se agota todo — reserva con meses de anticipación","El calor en mayo-junio es intenso. Lleva protector solar factor 70+","Carros en el centro: ve a pie, todo está a máximo 20 minutos caminando"],
     hidden_score:96, local_tips:["La tlayuda con tasajo en el mercado: $3. En restaurante con turistas: $18. Exactamente el mismo plato","Casa de la Abuela en el mercado Benito Juárez: el mejor chocolate caliente de Oaxaca, $1.50"] },
 
-  { id:5, name:"Plovdiv", country:"Bulgaria", region:"Europa", emoji:"🇧🇬",
+  { id:5, name:"Plovdiv", code:"PDV", country:"Bulgaria", region:"Europa", emoji:"🇧🇬",
     price:{mochilero:160,equilibrado:300,premium:750}, rating:4.7, reviews:892,
     verified:"hace 4 días", verifiedBy:11, tag:"🔍 Casi desconocido",
     img:"https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=900&q=85",
@@ -64,7 +64,7 @@ const DESTINATIONS = [
     warnings:["El cirílico complica la navegación — descarga Google Translate con modo cámara offline","Transporte público limitado — muchos sitios solo a pie o taxi","Poca oferta gastronómica internacional — pero la cocina local es extraordinaria y baratísima"],
     hidden_score:99, local_tips:["Mecha en el barrio Kapana: el restaurante donde comen los locales. Menú del día €4, incluye sopa + plato + bebida","El Amphitheatre romano en el centro: entrada gratuita si llegas a las 8am antes que los guías"] },
 
-  { id:6, name:"Medellín", country:"Colombia", region:"Latinoamérica", emoji:"🇨🇴",
+  { id:6, name:"Medellín", code:"MDE", country:"Colombia", region:"Latinoamérica", emoji:"🇨🇴",
     price:{mochilero:210,equilibrado:400,premium:1100}, rating:4.7, reviews:2156,
     verified:"hace 4 días", verifiedBy:41, tag:"🌟 Transformación épica",
     img:"https://images.unsplash.com/photo-1599413520757-8dc5c0e93c46?w=900&q=85",
@@ -75,7 +75,7 @@ const DESTINATIONS = [
     warnings:["La ciudad es segura en zonas turísticas — Laureles, El Poblado, Envigado. No aventurarse de noche a zonas desconocidas sin local","El tráfico es denso. Usa el metro siempre que puedas","La lluvia: llega sin avisar en las tardes. Siempre carga paraguas pequeño"],
     hidden_score:87, local_tips:["Bandeja paisa completa en el Mercado del Río: $5. En restaurante del Poblado: $18. La diferencia es el ambiente, no la comida","El tranvía de Ayacucho conecta el metro con las comunas. $0.80 y una experiencia de ciudad real"] },
 
-  { id:7, name:"Tokio", country:"Japón", region:"Asia", emoji:"🇯🇵",
+  { id:7, name:"Tokio", code:"TYO", country:"Japón", region:"Asia", emoji:"🇯🇵",
     price:{mochilero:680,equilibrado:1100,premium:3500}, rating:5.0, reviews:5847,
     verified:"hace 6 horas", verifiedBy:112, tag:"🏯 Nivel dios",
     img:"https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=900&q=85",
@@ -86,7 +86,7 @@ const DESTINATIONS = [
     warnings:["JR Pass solo vale la pena si vas Tokio–Kioto–Osaka en menos de 14 días. Calcula antes de comprar","El efectivo es rey en Japón — muchos sitios NO aceptan tarjeta todavía","La barrera del idioma es real. Descarga Google Translate con modo cámara para los menús"],
     hidden_score:86, local_tips:["7-Eleven y FamilyMart tienen comida de restaurante a precio de conveniencia. El onigiri y el ramen de convenience store son mejores de lo que imaginas","Templo Senso-ji a las 6am: el único momento sin turistas. Y los colores del amanecer son imposibles"] },
 
-  { id:8, name:"Fez", country:"Marruecos", region:"África", emoji:"🇲🇦",
+  { id:8, name:"Fez", code:"FEZ", country:"Marruecos", region:"África", emoji:"🇲🇦",
     price:{mochilero:150,equilibrado:300,premium:900}, rating:4.8, reviews:1678,
     verified:"hace 3 días", verifiedBy:22, tag:"🕌 Inmersión total",
     img:"https://images.unsplash.com/photo-1534430480872-3498386e7856?w=900&q=85",
@@ -97,7 +97,7 @@ const DESTINATIONS = [
     warnings:["Los guías no solicitados son inevitables — sé amable pero firme con 'La shukran'","El calor de julio-agosto supera los 42°C en el interior. Primavera u otoño son incomparablemente mejores","Lleva dirhams en efectivo — los cajeros escasean en la medina"],
     hidden_score:93, local_tips:["Mechoui (cordero asado) en el restaurante sin nombre frente a la puerta Bab Bou Jeloud: $6 el plato. Sin menú, sin carta. Solo señalas y comes","El hammam local vs hammam turístico: $2 vs $30. Experiencia idéntica, precio brutal. Pregunta en tu riad"] },
 
-  { id:9, name:"Buenos Aires", country:"Argentina", region:"Latinoamérica", emoji:"🇦🇷",
+  { id:9, name:"Buenos Aires", code:"EZE", country:"Argentina", region:"Latinoamérica", emoji:"🇦🇷",
     price:{mochilero:160,equilibrado:340,premium:1000}, rating:4.8, reviews:2634,
     verified:"hace 5 días", verifiedBy:38, tag:"🥩 Gastronómico",
     img:"https://images.unsplash.com/photo-1612294037637-ec328d0e075e?w=900&q=85",
@@ -108,7 +108,7 @@ const DESTINATIONS = [
     warnings:["El tipo de cambio en Argentina cambia constantemente — verifica el blue dólar antes de ir","Palermo Hollywood y Soho: seguros. La Boca: solo en el Caminito y durante el día","Las huelgas de transporte son frecuentes — descarga la app Cabify como backup"],
     hidden_score:88, local_tips:["El asado de los domingos en los parques: si ves a una familia asando y te invitan, acepta siempre. Es la cultura real","El colectivo (autobús) cuesta $0.20. El taxi, $8. El colectivo llega a todos lados igual de rápido"] },
 
-  { id:10, name:"Bali", country:"Indonesia", region:"Asia", emoji:"🇮🇩",
+  { id:10, name:"Bali", code:"DPS", country:"Indonesia", region:"Asia", emoji:"🇮🇩",
     price:{mochilero:380,equilibrado:720,premium:2800}, rating:4.9, reviews:4201,
     verified:"hace 1 día", verifiedBy:89, tag:"🌺 Espiritual",
     img:"https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=900&q=85",
@@ -120,7 +120,7 @@ const DESTINATIONS = [
     hidden_score:85, local_tips:["Templo Tirta Gangga a las 6:30am: solo tú y los devotos locales. A las 10am es un caos turístico","Los warung (restaurantes familiares) sin menú en inglés son invariablemente mejores y más baratos que los que sí lo tienen"] },,
 
   // ══ 🌎 LATAM TURÍSTICOS ══
-  { id:101, name:"Ciudad de México", country:"México", region:"Latinoamérica", emoji:"🇲🇽",
+  { id:101, name:"Ciudad de México", code:"MEX", country:"México", region:"Latinoamérica", emoji:"🇲🇽",
     price:{mochilero:280,equilibrado:620,premium:1800}, rating:4.8, reviews:4201,
     verified:"hace 1 día", verifiedBy:78, tag:"🏛️ Imperdible",
     img:"https://images.unsplash.com/photo-1518638150340-f706e86654de?w=900&q=85",
@@ -129,7 +129,7 @@ const DESTINATIONS = [
     gems:["Xochimilco en trajinera local ($3) no en tour ($30)","Mercado Jamaica al amanecer — flores y desayuno por $2","Coyoacán un martes: sin turistas, con soul"],
     warnings:["Altitud 2240m — primer día sin correr","Uber siempre sobre taxis de calle"] },
 
-  { id:102, name:"Río de Janeiro", country:"Brasil", region:"Latinoamérica", emoji:"🇧🇷",
+  { id:102, name:"Río de Janeiro", code:"GIG", country:"Brasil", region:"Latinoamérica", emoji:"🇧🇷",
     price:{mochilero:320,equilibrado:750,premium:2200}, rating:4.8, reviews:3890,
     verified:"hace 2 días", verifiedBy:61, tag:"🌴 Icónico",
     img:"https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=900&q=85",
@@ -138,7 +138,7 @@ const DESTINATIONS = [
     gems:["Santa Teresa: el barrio bohemio que los tours omiten","Mirante Dona Marta: mejores vistas de Río, gratis","Feira de São Cristóvão — cultura nordestina real"],
     warnings:["No caminar solo de noche en zonas no turísticas","Cuidado con pertenencias en playas"] },
 
-  { id:103, name:"Machu Picchu", country:"Perú", region:"Latinoamérica", emoji:"🇵🇪",
+  { id:103, name:"Machu Picchu", code:"CUZ", country:"Perú", region:"Latinoamérica", emoji:"🇵🇪",
     price:{mochilero:420,equilibrado:900,premium:2800}, rating:5.0, reviews:6102,
     verified:"hace 3 días", verifiedBy:44, tag:"🏔️ Maravilla Mundial",
     img:"https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=900&q=85",
@@ -147,7 +147,7 @@ const DESTINATIONS = [
     gems:["Puerta del Sol al amanecer — gratis y sin multitudes","Camino Salkantay: alternativa épica al Inca Trail","Aguas Calientes al alba, antes de los tours masivos"],
     warnings:["Reservar entrada con 2 meses de anticipación","Aclimatarse mínimo 2 días en Cusco antes"] },
 
-  { id:104, name:"Bogotá", country:"Colombia", region:"Latinoamérica", emoji:"🇨🇴",
+  { id:104, name:"Bogotá", code:"BOG", country:"Colombia", region:"Latinoamérica", emoji:"🇨🇴",
     price:{mochilero:240,equilibrado:560,premium:1600}, rating:4.6, reviews:2134,
     verified:"hace 2 días", verifiedBy:39, tag:"🎨 Arte & Café",
     img:"https://images.unsplash.com/photo-1597659840990-5f84abe8ef7b?w=900&q=85",
@@ -157,7 +157,7 @@ const DESTINATIONS = [
     warnings:["Solo Uber o InDrive de noche","No saques el teléfono caminando en zonas concurridas"] },
 
   // ══ 💎 LATAM JOYAS BARATAS ══
-  { id:105, name:"León", country:"Nicaragua", region:"Latinoamérica", emoji:"🇳🇮",
+  { id:105, name:"León", code:"MGA", country:"Nicaragua", region:"Latinoamérica", emoji:"🇳🇮",
     price:{mochilero:130,equilibrado:280,premium:800}, rating:4.6, reviews:892,
     verified:"hace 4 días", verifiedBy:14, tag:"💎 $18/día todo incluido",
     img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85",
@@ -166,7 +166,7 @@ const DESTINATIONS = [
     gems:["Sandboarding volcán Cerro Negro ($10 todo incluido)","Catedral más grande de Centroamérica — entrada gratis","Las Peñitas: playa virgen sin un hotel de cadena"],
     warnings:["Calor extremo mayo–octubre","Verificar situación política antes de reservar"] },
 
-  { id:106, name:"Sucre", country:"Bolivia", region:"Latinoamérica", emoji:"🇧🇴",
+  { id:106, name:"Sucre", code:"SRE", country:"Bolivia", region:"Latinoamérica", emoji:"🇧🇴",
     price:{mochilero:150,equilibrado:320,premium:900}, rating:4.7, reviews:1043,
     verified:"hace 3 días", verifiedBy:17, tag:"💎 Ciudad Blanca",
     img:"https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=900&q=85",
@@ -175,7 +175,7 @@ const DESTINATIONS = [
     gems:["Mercado Central: desayuno boliviano completo por $1.50","Cal Orck'o: huellas reales de dinosaurios en roca","Tarabuco: mercado indígena auténtico cada domingo"],
     warnings:["Altitud 2750m — hidratarse mucho el primer día","Salar de Uyuni a 3h — no te lo pierdas"] },
 
-  { id:107, name:"Valparaíso", country:"Chile", region:"Latinoamérica", emoji:"🇨🇱",
+  { id:107, name:"Valparaíso", code:"SCL", country:"Chile", region:"Latinoamérica", emoji:"🇨🇱",
     price:{mochilero:220,equilibrado:480,premium:1400}, rating:4.7, reviews:1567,
     verified:"hace 2 días", verifiedBy:28, tag:"💎 Arte urbano épico",
     img:"https://images.unsplash.com/photo-1526392060635-9d6019884377?w=900&q=85",
@@ -185,7 +185,7 @@ const DESTINATIONS = [
     warnings:["Zona portuaria baja no recomendable de noche"] },
 
   // ══ 🇪🇺 EUROPA TURÍSTICOS ══
-  { id:108, name:"París", country:"Francia", region:"Europa", emoji:"🇫🇷",
+  { id:108, name:"París", code:"CDG", country:"Francia", region:"Europa", emoji:"🇫🇷",
     price:{mochilero:560,equilibrado:1200,premium:3500}, rating:4.8, reviews:8923,
     verified:"hace 1 día", verifiedBy:134, tag:"🗼 Imperdible",
     img:"https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=900&q=85",
@@ -194,7 +194,7 @@ const DESTINATIONS = [
     gems:["Montmartre a las 7am: la ciudad duerme, tú la tienes","Marché d'Aligre: mercado local real, no Monmartre turístico","Coulée Verte: parque elevado secreto, sin turistas"],
     warnings:["Los meseros no traen la cuenta — pídela siempre","Carteristas en metro línea 1 y zona Torre Eiffel"] },
 
-  { id:109, name:"Roma", country:"Italia", region:"Europa", emoji:"🇮🇹",
+  { id:109, name:"Roma", code:"FCO", country:"Italia", region:"Europa", emoji:"🇮🇹",
     price:{mochilero:480,equilibrado:1050,premium:3000}, rating:4.9, reviews:7654,
     verified:"hace 1 día", verifiedBy:98, tag:"🏛️ Ciudad Eterna",
     img:"https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=900&q=85",
@@ -203,7 +203,7 @@ const DESTINATIONS = [
     gems:["Gianicolo al atardecer: vistas de Roma gratis y sin nadie","Trastevere de noche: la Roma auténtica que no sale en fotos","Mercado Testaccio: comida local real, no restaurantes de la Piazza"],
     warnings:["El agua de todas las fuentes es potable y gratis","Julio–Agosto: calor extremo y masificación total"] },
 
-  { id:110, name:"Barcelona", country:"España", region:"Europa", emoji:"🇪🇸",
+  { id:110, name:"Barcelona", code:"BCN", country:"España", region:"Europa", emoji:"🇪🇸",
     price:{mochilero:480,equilibrado:1050,premium:3200}, rating:4.8, reviews:6789,
     verified:"hace 2 días", verifiedBy:87, tag:"🏖️ Mar + Arquitectura",
     img:"https://images.unsplash.com/photo-1583422409516-2895a77efded?w=900&q=85",
@@ -212,7 +212,7 @@ const DESTINATIONS = [
     gems:["Bunkers del Carmel al sunset: la mejor vista de BCN, gratis","Mercado Santa Caterina: sin turistas, con cooks locales","Poblenou: el barrio bohemio que Gracia era hace 15 años"],
     warnings:["Carteristas profesionales en Las Ramblas y metro L3","Julio–Agosto: precios se duplican y playas colapsan"] },
 
-  { id:111, name:"Ámsterdam", country:"Países Bajos", region:"Europa", emoji:"🇳🇱",
+  { id:111, name:"Ámsterdam", code:"AMS", country:"Países Bajos", region:"Europa", emoji:"🇳🇱",
     price:{mochilero:600,equilibrado:1280,premium:3800}, rating:4.7, reviews:5432,
     verified:"hace 1 día", verifiedBy:76, tag:"🚲 Canales",
     img:"https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=900&q=85",
@@ -221,7 +221,7 @@ const DESTINATIONS = [
     gems:["Jordaan de mañana en bici: canales sin turistas","Mercado Albert Cuyp: el más grande de Holanda, muy local","NDSM Wharf: arte urbano industrial, entrada gratis"],
     warnings:["Las bicicletas tienen prioridad absoluta — no camines en el carril bici","Tulipanes solo en abril–mayo (Keukenhof)"] },
 
-  { id:112, name:"Estambul", country:"Turquía", region:"Europa", emoji:"🇹🇷",
+  { id:112, name:"Estambul", code:"IST", country:"Turquía", region:"Europa", emoji:"🇹🇷",
     price:{mochilero:280,equilibrado:650,premium:2000}, rating:4.9, reviews:5876,
     verified:"hace 1 día", verifiedBy:92, tag:"🕌 Dos continentes",
     img:"https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=900&q=85",
@@ -231,7 +231,7 @@ const DESTINATIONS = [
     warnings:["Inflación muy alta — los precios cambian cada semana","Negociar en bazares es obligatorio, no opcional"] },
 
   // ══ 💎 EUROPA JOYAS BARATAS ══
-  { id:113, name:"Tiflis", country:"Georgia", region:"Europa", emoji:"🇬🇪",
+  { id:113, name:"Tiflis", code:"TBS", country:"Georgia", region:"Europa", emoji:"🇬🇪",
     price:{mochilero:175,equilibrado:390,premium:1100}, rating:4.8, reviews:2134,
     verified:"hace 3 días", verifiedBy:31, tag:"💎 Europa más barata",
     img:"https://images.unsplash.com/photo-1565008576549-57569a49371d?w=900&q=85",
@@ -240,7 +240,7 @@ const DESTINATIONS = [
     gems:["Baños sulfurosos del barrio Abanotubani ($5 sesión completa)","Kakheti — región vinícola más antigua del mundo ($30/día)","Uplistsikhe: ciudad cueva del siglo VI, a 1h de Tiflis"],
     warnings:["Conducción muy agresiva — cruza con cuidado","Pocas señales en inglés fuera del centro"] },
 
-  { id:114, name:"Sarajevo", country:"Bosnia", region:"Europa", emoji:"🇧🇦",
+  { id:114, name:"Sarajevo", code:"SJJ", country:"Bosnia", region:"Europa", emoji:"🇧🇦",
     price:{mochilero:175,equilibrado:380,premium:1050}, rating:4.7, reviews:1432,
     verified:"hace 4 días", verifiedBy:19, tag:"💎 Historia impactante",
     img:"https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=900&q=85",
@@ -249,7 +249,7 @@ const DESTINATIONS = [
     gems:["Baščaršija: el bazar otomano más auténtico de Europa","Túnel de la Esperanza: historia reciente que te cambia","Mostar y su Stari Most a solo 1h en bus ($5)"],
     warnings:["Zonas rurales apartadas aún tienen minas","Poco inglés fuera del centro turístico"] },
 
-  { id:115, name:"Cracovia", country:"Polonia", region:"Europa", emoji:"🇵🇱",
+  { id:115, name:"Cracovia", code:"KRK", country:"Polonia", region:"Europa", emoji:"🇵🇱",
     price:{mochilero:220,equilibrado:500,premium:1400}, rating:4.8, reviews:3201,
     verified:"hace 2 días", verifiedBy:47, tag:"💎 Medieval a mitad de precio",
     img:"https://images.unsplash.com/photo-1562883676-8c7feb83f09b?w=900&q=85",
@@ -259,7 +259,7 @@ const DESTINATIONS = [
     warnings:["Invierno muy frío, hasta -15°C","Auschwitz requiere reserva con semanas de anticipación"] },
 
   // ══ 🌏 ASIA TURÍSTICOS ══
-  { id:116, name:"Bangkok", country:"Tailandia", region:"Asia", emoji:"🇹🇭",
+  { id:116, name:"Bangkok", code:"BKK", country:"Tailandia", region:"Asia", emoji:"🇹🇭",
     price:{mochilero:175,equilibrado:450,premium:1400}, rating:4.8, reviews:7234,
     verified:"hace 1 día", verifiedBy:103, tag:"🛺 Street Food",
     img:"https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=900&q=85",
@@ -268,7 +268,7 @@ const DESTINATIONS = [
     gems:["Wat Arun al amanecer: el templo de mármol sin nadie","Mercado flotante Amphawa los fines de semana ($2 bote)","Chinatown de noche: cena épica por $3"],
     warnings:["Calor extremo de marzo a mayo","Precio fijo con tuk-tuks antes de subir siempre"] },
 
-  { id:117, name:"Seúl", country:"Corea del Sur", region:"Asia", emoji:"🇰🇷",
+  { id:117, name:"Seúl", code:"ICN", country:"Corea del Sur", region:"Asia", emoji:"🇰🇷",
     price:{mochilero:320,equilibrado:750,premium:2200}, rating:4.8, reviews:5678,
     verified:"hace 1 día", verifiedBy:84, tag:"🎮 K-Culture",
     img:"https://images.unsplash.com/photo-1538485399081-7191377e8241?w=900&q=85",
@@ -278,7 +278,7 @@ const DESTINATIONS = [
     warnings:["Cherry blossom = multitudes extremas y precios altos","Calor húmedo insoportable en julio–agosto"] },
 
   // ══ 💎 ASIA JOYAS BARATAS ══
-  { id:118, name:"Hanói", country:"Vietnam", region:"Asia", emoji:"🇻🇳",
+  { id:118, name:"Hanói", code:"HAN", country:"Vietnam", region:"Asia", emoji:"🇻🇳",
     price:{mochilero:140,equilibrado:320,premium:950}, rating:4.7, reviews:3456,
     verified:"hace 2 días", verifiedBy:52, tag:"💎 Pho a $1.50",
     img:"https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=900&q=85",
@@ -287,7 +287,7 @@ const DESTINATIONS = [
     gems:["Lago Hoan Kiem al amanecer: meditación pública gratis cada día","Pho bo en Pho Bat Dan: el mejor pho del mundo por $1.50","Ha Long Bay en barco local sin tour ($15 ida y vuelta)"],
     warnings:["Tráfico de motos caótico — nunca corras al cruzar","Regatear en mercados es parte de la cultura, no es ofensa"] },
 
-  { id:119, name:"Chiang Mai", country:"Tailandia", region:"Asia", emoji:"🇹🇭",
+  { id:119, name:"Chiang Mai", code:"CNX", country:"Tailandia", region:"Asia", emoji:"🇹🇭",
     price:{mochilero:140,equilibrado:320,premium:950}, rating:4.8, reviews:4123,
     verified:"hace 2 días", verifiedBy:63, tag:"💎 Templos + elefantes éticos",
     img:"https://images.unsplash.com/photo-1528181304800-259b08848526?w=900&q=85",
@@ -296,7 +296,7 @@ const DESTINATIONS = [
     gems:["Doi Suthep al amanecer en moto ($2 gasolina, sin tour)","Santuario de elefantes éticos — sin shows, solo convivencia","Mercado Warorot: donde come la gente local, no los turistas"],
     warnings:["Feb–Abr: quema agrícola, smog extremo — evitar","No senderismo nocturno solo en montaña"] },
 
-  { id:120, name:"Katmandú", country:"Nepal", region:"Asia", emoji:"🇳🇵",
+  { id:120, name:"Katmandú", code:"KTM", country:"Nepal", region:"Asia", emoji:"🇳🇵",
     price:{mochilero:140,equilibrado:320,premium:950}, rating:4.7, reviews:2876,
     verified:"hace 3 días", verifiedBy:38, tag:"💎 Himalaya épico",
     img:"https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=900&q=85",
@@ -305,7 +305,7 @@ const DESTINATIONS = [
     gems:["Swayambhunath al amanecer: monos, stupa y el Himalaya de fondo","Trekking Annapurna Base Camp 14 días desde $20/día","Bhaktapur: ciudad medieval sin coches ni turistas de crucero"],
     warnings:["Aclimatarse bien antes de subir a altura extrema","Guía local imprescindible en alta montaña"] },
 
-  { id:121, name:"Luang Prabang", country:"Laos", region:"Asia", emoji:"🇱🇦",
+  { id:121, name:"Luang Prabang", code:"LPQ", country:"Laos", region:"Asia", emoji:"🇱🇦",
     price:{mochilero:160,equilibrado:350,premium:1000}, rating:4.8, reviews:1934,
     verified:"hace 3 días", verifiedBy:27, tag:"💎 Ciudad UNESCO tranquila",
     img:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=85",
@@ -315,7 +315,7 @@ const DESTINATIONS = [
     warnings:["Internet y señal muy limitados","Vestimenta respetuosa en templos — cubre hombros y rodillas"] },
 
   // ══ 🌍 ÁFRICA TURÍSTICOS Y JOYAS ══
-  { id:122, name:"Marrakech", country:"Marruecos", region:"África", emoji:"🇲🇦",
+  { id:122, name:"Marrakech", code:"RAK", country:"Marruecos", region:"África", emoji:"🇲🇦",
     price:{mochilero:220,equilibrado:520,premium:1600}, rating:4.8, reviews:4321,
     verified:"hace 1 día", verifiedBy:56, tag:"🧿 Medina laberíntica",
     img:"https://images.unsplash.com/photo-1548018560-c7196548bec6?w=900&q=85",
@@ -324,7 +324,7 @@ const DESTINATIONS = [
     gems:["Jardin Majorelle a las 6am: solo tú y los pájaros","Desierto Merzouga — 2 noches en jaima auténtica ($40)","Hammam local no turístico: ritual de siglos por $5"],
     warnings:["Guías falsos muy insistentes en la medina","Regatear en zocos es imprescindible — precio inicial es x5"] },
 
-  { id:123, name:"Zanzibar", country:"Tanzania", region:"África", emoji:"🇹🇿",
+  { id:123, name:"Zanzibar", code:"ZNZ", country:"Tanzania", region:"África", emoji:"🇹🇿",
     price:{mochilero:250,equilibrado:600,premium:2000}, rating:4.9, reviews:2876,
     verified:"hace 2 días", verifiedBy:41, tag:"💎 Paraíso árabe-africano",
     img:"https://images.unsplash.com/photo-1548625149-720094d8f04e?w=900&q=85",
@@ -333,7 +333,7 @@ const DESTINATIONS = [
     gems:["Stone Town: laberinto árabe-africano declarado UNESCO","Nungwi Beach: snorkel con tortugas marinas ($10)","Mercado nocturno Forodhani: cena de 3 platos por $2"],
     warnings:["Vestimenta respetuosa en Stone Town (zona islámica)","Regatear es parte de la cultura local"] },
 
-  { id:124, name:"Essaouira", country:"Marruecos", region:"África", emoji:"🇲🇦",
+  { id:124, name:"Essaouira", code:"ESU", country:"Marruecos", region:"África", emoji:"🇲🇦",
     price:{mochilero:160,equilibrado:380,premium:1100}, rating:4.7, reviews:1543,
     verified:"hace 3 días", verifiedBy:22, tag:"💎 Pueblo azul y blanco",
     img:"https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=900&q=85",
@@ -342,7 +342,7 @@ const DESTINATIONS = [
     gems:["Murallas medievales al sunset: gratis y sin nadie","Festival de Gnawa en junio: música ancestral 3 días gratis","Tagine de pescado fresco en el puerto: $4 el menú completo"],
     warnings:["Viento muy fuerte todo el año (ideal para kitesurf)","Masificación total en julio–agosto"] },
 
-  { id:125, name:"Ciudad del Cabo", country:"Sudáfrica", region:"África", emoji:"🇿🇦",
+  { id:125, name:"Ciudad del Cabo", code:"CPT", country:"Sudáfrica", region:"África", emoji:"🇿🇦",
     price:{mochilero:300,equilibrado:720,premium:2200}, rating:4.8, reviews:3567,
     verified:"hace 2 días", verifiedBy:49, tag:"🦁 Safari + Ciudad",
     img:"https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=900&q=85",
@@ -352,7 +352,7 @@ const DESTINATIONS = [
     warnings:["No caminar solo de noche en ningún barrio","Discreción total con pertenencias y joyería"] },
 
   // ══ 🕌 MEDIO ORIENTE TURÍSTICOS Y JOYAS ══
-  { id:126, name:"Dubái", country:"Emiratos Árabes", region:"Medio Oriente", emoji:"🇦🇪",
+  { id:126, name:"Dubái", code:"DXB", country:"Emiratos Árabes", region:"Medio Oriente", emoji:"🇦🇪",
     price:{mochilero:560,equilibrado:1400,premium:5000}, rating:4.6, reviews:6234,
     verified:"hace 1 día", verifiedBy:89, tag:"🏙️ Futurista",
     img:"https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=85",
@@ -361,7 +361,7 @@ const DESTINATIONS = [
     gems:["Al Fahidi: el único barrio histórico auténtico de Dubái","Safari desierto al atardecer con cena beduina ($45)","Mercado de especias en Deira: la Dubái real, no el mall"],
     warnings:["Leyes muy estrictas — informarse antes de ir","Alcohol solo en hoteles y restaurantes licenciados"] },
 
-  { id:127, name:"Petra", country:"Jordania", region:"Medio Oriente", emoji:"🇯🇴",
+  { id:127, name:"Petra", code:"AMM", country:"Jordania", region:"Medio Oriente", emoji:"🇯🇴",
     price:{mochilero:300,equilibrado:640,premium:1800}, rating:5.0, reviews:4891,
     verified:"hace 2 días", verifiedBy:62, tag:"🏺 Maravilla Mundial",
     img:"https://images.unsplash.com/photo-1579606037885-46c4b7289617?w=900&q=85",
@@ -370,7 +370,7 @@ const DESTINATIONS = [
     gems:["El Tesoro al amanecer: llega a las 5:30am y lo tienes solo","El Siq al alba: el cañón de 1.2km en luz dorada","Wadi Rum con beduinos locales ($50 noche + safari)"],
     warnings:["Petra by Night es cara y no vale la pena ($17)","Calor extremo de junio a agosto — evitar"] },
 
-  { id:128, name:"Omán", country:"Omán", region:"Medio Oriente", emoji:"🇴🇲",
+  { id:128, name:"Omán", code:"MCT", country:"Omán", region:"Medio Oriente", emoji:"🇴🇲",
     price:{mochilero:320,equilibrado:720,premium:2200}, rating:4.8, reviews:1876,
     verified:"hace 3 días", verifiedBy:28, tag:"💎 Árabe auténtico",
     img:"https://images.unsplash.com/photo-1578895101408-1a36b834405b?w=900&q=85",
