@@ -189,6 +189,82 @@ const hotelsDB = {
     { id: 182, name: "Muscat Youth Hostel", type: "hostal", price: 20, rating: 8.5, reviews: 420, image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link: "https://www.booking.com/hotel/om/muscat-youth-hostel.html" },
     { id: 183, name: "The Chedi Muscat", type: "lujo", price: 420, rating: 9.7, reviews: 280, image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link: "https://www.booking.com/hotel/om/the-chedi-muscat.html" }
   ]
+,
+  "Nueva York": [
+    { id:201, name:"The Standard High Line", type:"boutique", price:280, rating:9.1, reviews:2100, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/us/the-standard-high-line.html" },
+    { id:202, name:"HI NYC Hostel", type:"hostal", price:45, rating:8.6, reviews:4200, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/us/hi-new-york-city.html" },
+    { id:203, name:"The Plaza Hotel", type:"lujo", price:980, rating:9.6, reviews:890, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/us/the-plaza.html" }
+  ],
+  "Chicago": [
+    { id:204, name:"Ace Hotel Chicago", type:"boutique", price:190, rating:9.0, reviews:1340, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/us/ace-chicago.html" },
+    { id:205, name:"Freehand Chicago", type:"hostal", price:55, rating:8.8, reviews:2100, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/us/freehand-chicago.html" },
+    { id:206, name:"The Langham Chicago", type:"lujo", price:680, rating:9.7, reviews:560, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/us/the-langham-chicago.html" }
+  ],
+  "Vancouver": [
+    { id:207, name:"Listel Hotel Vancouver", type:"boutique", price:180, rating:9.1, reviews:890, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/ca/the-listel-vancouver.html" },
+    { id:208, name:"Samesun Vancouver", type:"hostal", price:38, rating:8.9, reviews:2800, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/ca/samesun-vancouver.html" },
+    { id:209, name:"Fairmont Pacific Rim", type:"lujo", price:620, rating:9.6, reviews:780, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/ca/fairmont-pacific-rim.html" }
+  ],
+  "Ciudad de Quebec": [
+    { id:210, name:"Auberge Saint-Antoine", type:"boutique", price:220, rating:9.4, reviews:760, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/ca/auberge-saint-antoine.html" },
+    { id:211, name:"Auberge de la Paix", type:"hostal", price:32, rating:9.0, reviews:1200, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/ca/auberge-de-la-paix.html" },
+    { id:212, name:"Fairmont Le Château Frontenac", type:"lujo", price:480, rating:9.5, reviews:1800, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/ca/fairmont-le-chateau-frontenac.html" }
+  ],
+  "Praga": [
+    { id:213, name:"Mosaic House", type:"boutique", price:95, rating:9.2, reviews:1800, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/cz/mosaic-house.html" },
+    { id:214, name:"Sophie's Hostel", type:"hostal", price:18, rating:9.3, reviews:4500, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/cz/sophie-s.html" },
+    { id:215, name:"Four Seasons Prague", type:"lujo", price:580, rating:9.7, reviews:620, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/cz/four-seasons-prague.html" }
+  ],
+  "Viena": [
+    { id:216, name:"25hours Hotel Wien", type:"boutique", price:160, rating:9.1, reviews:2100, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/at/25hours-wien-beim-museumsquartier.html" },
+    { id:217, name:"Wombats Vienna", type:"hostal", price:28, rating:8.9, reviews:5600, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/at/wombats-city-hostel-vienna.html" },
+    { id:218, name:"Hotel Sacher Wien", type:"lujo", price:680, rating:9.6, reviews:1200, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/at/sacher.html" }
+  ],
+  "Dubrovnik": [
+    { id:219, name:"Hotel Stari Grad", type:"boutique", price:180, rating:9.3, reviews:780, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/hr/stari-grad-dubrovnik.html" },
+    { id:220, name:"Hostel Angelina Old Town", type:"hostal", price:28, rating:9.1, reviews:1200, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/hr/angelina-old-town-hostel.html" },
+    { id:221, name:"Villa Dubrovnik", type:"lujo", price:580, rating:9.7, reviews:340, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/hr/villa-dubrovnik.html" }
+  ],
+  "Budapest": [
+    { id:222, name:"Brody House", type:"boutique", price:120, rating:9.2, reviews:890, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/hu/brody-house.html" },
+    { id:223, name:"Maverick City Lodge", type:"hostal", price:16, rating:9.1, reviews:3800, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/hu/maverick-city-lodge.html" },
+    { id:224, name:"Four Seasons Gresham Palace", type:"lujo", price:620, rating:9.8, reviews:560, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/hu/four-seasons-hotel-gresham-palace-budapest.html" }
+  ],
+  "Ciudad de Panamá": [
+    { id:225, name:"American Trade Hotel", type:"boutique", price:180, rating:9.3, reviews:620, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/pa/american-trade.html" },
+    { id:226, name:"Selina Casco Viejo", type:"hostal", price:22, rating:9.0, reviews:1400, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/pa/selina-casco-viejo.html" },
+    { id:227, name:"The Westin Panama", type:"lujo", price:280, rating:9.2, reviews:890, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/pa/the-westin-panama.html" }
+  ],
+  "Quito": [
+    { id:228, name:"Casa Gangotena", type:"boutique", price:160, rating:9.5, reviews:480, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/ec/casa-gangotena.html" },
+    { id:229, name:"Secret Garden Hostel", type:"hostal", price:18, rating:9.3, reviews:2100, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/ec/secret-garden-quito.html" },
+    { id:230, name:"JW Marriott Quito", type:"lujo", price:240, rating:9.3, reviews:760, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/ec/jw-marriott-quito.html" }
+  ],
+  "El Cairo": [
+    { id:231, name:"Mena House Hotel", type:"boutique", price:180, rating:9.2, reviews:1200, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/eg/anantara-the-mena-house.html" },
+    { id:232, name:"Cairo Hostel", type:"hostal", price:12, rating:8.7, reviews:1800, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/eg/cairo-hostel.html" },
+    { id:233, name:"Four Seasons Cairo Nile Plaza", type:"lujo", price:480, rating:9.6, reviews:680, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/eg/four-seasons-cairo-at-nile-plaza.html" }
+  ],
+  "Singapur": [
+    { id:234, name:"Wanderlust Hotel", type:"boutique", price:160, rating:9.1, reviews:980, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/sg/wanderlust.html" },
+    { id:235, name:"Hangout@MTD", type:"hostal", price:28, rating:8.8, reviews:2400, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/sg/hangout-mtd.html" },
+    { id:236, name:"Marina Bay Sands", type:"lujo", price:680, rating:9.5, reviews:2800, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/sg/marina-bay-sands.html" }
+  ],
+  "Kioto": [
+    { id:237, name:"The Millennials Kyoto", type:"boutique", price:80, rating:9.3, reviews:1800, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/jp/the-millennials-kyoto.html" },
+    { id:238, name:"Piece Hostel Kyoto", type:"hostal", price:28, rating:9.0, reviews:3200, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/jp/piece-hostel-kyoto.html" },
+    { id:239, name:"Aman Kyoto", type:"lujo", price:1200, rating:9.9, reviews:180, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/jp/aman-kyoto.html" }
+  ],
+  "Maldivas": [
+    { id:240, name:"Maafushi Inn", type:"boutique", price:80, rating:9.0, reviews:840, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/mv/maafushi-inn.html" },
+    { id:241, name:"Sand & Sea Maafushi", type:"hostal", price:45, rating:8.8, reviews:620, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/mv/sand-and-sea-maafushi.html" },
+    { id:242, name:"Gili Lankanfushi", type:"lujo", price:1800, rating:9.9, reviews:420, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/mv/gili-lankanfushi-maldives.html" }
+  ],
+  "Phuket": [
+    { id:243, name:"Slate Hotel Phuket", type:"boutique", price:120, rating:9.2, reviews:1200, image:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400", link:"https://www.booking.com/hotel/th/the-nai-harn.html" },
+    { id:244, name:"Lub d Phuket Patong", type:"hostal", price:15, rating:8.9, reviews:3400, image:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400", link:"https://www.booking.com/hotel/th/lubd-phuket-patong.html" },
+    { id:245, name:"Trisara Resort", type:"lujo", price:780, rating:9.8, reviews:340, image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400", link:"https://www.booking.com/hotel/th/trisara.html" }
+  ]
 };
 
 export default function HotelWidget({ destination, budgetMode }) {
